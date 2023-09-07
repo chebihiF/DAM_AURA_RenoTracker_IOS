@@ -13,7 +13,7 @@ struct ContentView: View {
             
             Header()
             
-            ProgressInfoCard()
+            WorkQuality()
             
             Divider()
             
@@ -59,17 +59,27 @@ struct Header: View {
                     RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.white, lineWidth: 5)
                 )
+            ProgressInfoCard()
+        }
+    }
+}
+
+struct ProgressInfoCard: View {
+    var body: some View {
+        VStack{
+            HStack{
+                ProgressView(value: 0.6)
+                Text("60% Complete")
+            }
+            Text("Due on Sunday, August 1, 2023")   
         }
     }
 }
 
 // MARK: Status section
-struct ProgressInfoCard: View {
+struct WorkQuality: View {
     var body: some View {
         VStack{
-            Text("Due on Sunday, August 1, 2023")
-            ProgressView(value: 0.6)
-            Text("60% Complete")
             Text("Work Quality : Good")
             HStack{
                 Image(systemName: "star.fill")
@@ -78,8 +88,6 @@ struct ProgressInfoCard: View {
                 Image(systemName: "star.fill")
                 Image(systemName: "star")
             }.foregroundColor(.yellow)
-            
-            
         }
     }
 }
@@ -134,3 +142,5 @@ struct Budget: View {
         }
     }
 }
+
+
