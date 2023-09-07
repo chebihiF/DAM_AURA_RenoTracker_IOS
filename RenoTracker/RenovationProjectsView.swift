@@ -13,10 +13,10 @@ struct RenovationProjectsView: View {
             List{
                 NavigationLink(
                     destination: DetailView(),
-                    label: {
-                        Text("Reno 1")
-                    }
-                    )
+                    label: { RenovationProjectRow() })
+                RenovationProjectRow()
+                RenovationProjectRow()
+                RenovationProjectRow()
             }
             .navigationTitle("Home")
         }

@@ -30,7 +30,7 @@ struct RenovationProjectRow: View {
                 }
             }
             Spacer()
-        }.padding(.trailing)
+        }
     }
 }
 

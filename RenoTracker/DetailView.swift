@@ -45,8 +45,8 @@ struct DetailView_Previews: PreviewProvider {
 struct Header: View {
     var body: some View {
         VStack(alignment: .leading){
-            Text("Front Lobby")
-                .font(.largeTitle)
+            /*Text("Front Lobby")
+                .font(.largeTitle)*/
             Image("front-lobby")
                 .resizable()
                 .scaledToFit()
