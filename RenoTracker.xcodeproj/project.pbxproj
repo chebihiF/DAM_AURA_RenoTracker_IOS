@@ -25,6 +25,7 @@
 		6DDB0E6F2AA9D05B00B7A103 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		6DDB0E712AA9D22C00B7A103 /* RenovationProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectsView.swift; sourceTree = "<group>"; };
 		6DDB0E732AA9D4C900B7A103 /* RenovationProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectRow.swift; sourceTree = "<group>"; };
+		6DDB0E762AA9DAA000B7A103 /* projects.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = projects.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 		6DDB0E602AA8797F00B7A103 /* RenoTracker */ = {
 			isa = PBXGroup;
 			children = (
+				6DDB0E752AA9DA2900B7A103 /* Models */,
 				6DDB0E612AA8797F00B7A103 /* RenoTrackerApp.swift */,
 				6DDB0E632AA8797F00B7A103 /* DetailView.swift */,
 				6DDB0E652AA8798000B7A103 /* Assets.xcassets */,
@@ -74,6 +76,14 @@
 				6DDB0E682AA8798000B7A103 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6DDB0E752AA9DA2900B7A103 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6DDB0E762AA9DAA000B7A103 /* projects.geojson */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
