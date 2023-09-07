@@ -9,20 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            
             // MARK: Header Section
-            VStack{
+            VStack(alignment: .leading){
                 Text("Front Lobby")
-                Text("<<<Photot Placeholder>>>") // TODO: Get photo and show here
+                    .font(.largeTitle)
+                Image("front-lobby")
+                    .resizable()
+                    .scaledToFit()
             }
+            
             // MARK: Status section
             VStack{
+                Text("Due on Sunday, August 1, 2023")
+                ProgressView(value: 0.6)
                 Text("60% Complete")
                 Text("Work Quality : Good")
-                Text("Due on Sunday, August 1, 2023")
-                Text("On Budget")
+                HStack{
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star.fill")
+                    Image(systemName: "star")
+                }.foregroundColor(.yellow)
+
                 Text("FLAGGED FOR REVIEW")
             }
+            
+            Divider()
+            
             // MARK: Punch List section
             VStack{
                 Text("Punch List")
