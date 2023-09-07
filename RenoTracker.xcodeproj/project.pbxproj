@@ -14,6 +14,7 @@
 		6DDB0E702AA9D05B00B7A103 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E6F2AA9D05B00B7A103 /* EditView.swift */; };
 		6DDB0E722AA9D22C00B7A103 /* RenovationProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E712AA9D22C00B7A103 /* RenovationProjectsView.swift */; };
 		6DDB0E742AA9D4C900B7A103 /* RenovationProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E732AA9D4C900B7A103 /* RenovationProjectRow.swift */; };
+		6DDB0E782AA9DBF200B7A103 /* RenovationProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E772AA9DBF200B7A103 /* RenovationProject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6DDB0E712AA9D22C00B7A103 /* RenovationProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectsView.swift; sourceTree = "<group>"; };
 		6DDB0E732AA9D4C900B7A103 /* RenovationProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectRow.swift; sourceTree = "<group>"; };
 		6DDB0E762AA9DAA000B7A103 /* projects.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = projects.geojson; sourceTree = "<group>"; };
+		6DDB0E772AA9DBF200B7A103 /* RenovationProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				6DDB0E762AA9DAA000B7A103 /* projects.geojson */,
+				6DDB0E772AA9DBF200B7A103 /* RenovationProject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			files = (
 				6DDB0E642AA8797F00B7A103 /* DetailView.swift in Sources */,
 				6DDB0E742AA9D4C900B7A103 /* RenovationProjectRow.swift in Sources */,
+				6DDB0E782AA9DBF200B7A103 /* RenovationProject.swift in Sources */,
 				6DDB0E722AA9D22C00B7A103 /* RenovationProjectsView.swift in Sources */,
 				6DDB0E622AA8797F00B7A103 /* RenoTrackerApp.swift in Sources */,
 				6DDB0E702AA9D05B00B7A103 /* EditView.swift in Sources */,
