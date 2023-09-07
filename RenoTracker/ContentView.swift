@@ -52,27 +52,40 @@ struct Header: View {
                     Text("FLAGGED FOR REVIEW")
                         .padding(5)
                         .foregroundColor(.white)
-                        .background(Color.black.opacity(0.8)),
-                    alignment: .bottom
+                        .background(Color.black.opacity(0.8))
+                        .padding(),
+                    alignment: .topTrailing
                 )
                 .overlay(
                     RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.white, lineWidth: 5)
                 )
-            ProgressInfoCard()
+                .overlay(
+                    ProgressInfoCard()
+                        .padding(),
+                    alignment: .bottom
+                )
+            
         }
     }
 }
 
 struct ProgressInfoCard: View {
     var body: some View {
-        VStack{
-            HStack{
-                ProgressView(value: 0.6)
-                Text("60% Complete")
-            }
-            Text("Due on Sunday, August 1, 2023")   
-        }
+        ZStack {
+            RoundedRectangle(cornerRadius: 5)
+                .foregroundColor(.white)
+                .opacity(0.9)
+            
+            VStack{
+                HStack{
+                    ProgressView(value: 0.6)
+                    Text("60% Complete")
+                }
+                Text("Due on Sunday, August 1, 2023")
+            }.padding()
+            
+        }.frame(width: 310, height: 100)
     }
 }
 
