@@ -36,41 +36,55 @@ struct ContentView: View {
 
                 Text("FLAGGED FOR REVIEW")
             }
-            
             Divider()
             
             // MARK: Punch List section
-            VStack{
+            VStack(alignment: .leading){
                 Text("Punch List")
-                Text("Remodel front desk")
-                Text("Retile entry")
-                Text("Replace Light fixtures")
-                Text("Paint walls")
-                Text("Hang new artWork")
+                    .font(.headline)
+                    .foregroundColor(.accentColor)
+                Label("Remodel front desk", systemImage: "checkmark.circle")
+                Label("Retile entry", systemImage: "checkmark.circle")
+                Label("Replace Light fixtures", systemImage: "checkmark.circle")
+                Label("Paint walls", systemImage: "asterisk.circle")
+                Label("Hang new artWork", systemImage: "circle")
             }
+            Divider()
+            
             // MARK: Budget section
-            VStack{
+            VStack(alignment: .leading){
                 Text("Budget")
+                    .font(.headline)
+                    .foregroundColor(.accentColor)
+                
                 HStack{
                     Text("Amount Allocated: ")
+                    Spacer()
                     Text("$15,000")
                 }
                 HStack{
                     Text("Spent to-date: ")
+                    Spacer()
                     Text("$8,350")
+                        .underline()
                 }
                 HStack{
                     Text("Amount remaining: ")
+                    Spacer()
                     Text("$6,660")
+                        .bold()
                 }
             }
+            Spacer()
         }
-        .padding()
+        .padding(.all)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        ContentView()
+            .preferredColorScheme(.dark)
     }
 }
