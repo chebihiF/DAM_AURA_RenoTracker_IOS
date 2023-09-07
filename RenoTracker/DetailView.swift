@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -26,13 +26,17 @@ struct ContentView: View {
             Spacer()
         }
         .padding(.all)
+        .navigationTitle("Front Lobby")
+        .sheet(isPresented: .constant(false), content: {
+            EditView()
+        })
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        ContentView()
+        DetailView()
+        DetailView()
             .preferredColorScheme(.dark)
     }
 }

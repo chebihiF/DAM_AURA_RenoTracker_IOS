@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		6DDB0E622AA8797F00B7A103 /* RenoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E612AA8797F00B7A103 /* RenoTrackerApp.swift */; };
-		6DDB0E642AA8797F00B7A103 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E632AA8797F00B7A103 /* ContentView.swift */; };
+		6DDB0E642AA8797F00B7A103 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E632AA8797F00B7A103 /* DetailView.swift */; };
 		6DDB0E662AA8798000B7A103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DDB0E652AA8798000B7A103 /* Assets.xcassets */; };
 		6DDB0E692AA8798000B7A103 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DDB0E682AA8798000B7A103 /* Preview Assets.xcassets */; };
+		6DDB0E702AA9D05B00B7A103 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E6F2AA9D05B00B7A103 /* EditView.swift */; };
+		6DDB0E722AA9D22C00B7A103 /* RenovationProjectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E712AA9D22C00B7A103 /* RenovationProjectsView.swift */; };
+		6DDB0E742AA9D4C900B7A103 /* RenovationProjectRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E732AA9D4C900B7A103 /* RenovationProjectRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6DDB0E5E2AA8797F00B7A103 /* RenoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DDB0E612AA8797F00B7A103 /* RenoTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenoTrackerApp.swift; sourceTree = "<group>"; };
-		6DDB0E632AA8797F00B7A103 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6DDB0E632AA8797F00B7A103 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		6DDB0E652AA8798000B7A103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6DDB0E682AA8798000B7A103 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6DDB0E6F2AA9D05B00B7A103 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		6DDB0E712AA9D22C00B7A103 /* RenovationProjectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectsView.swift; sourceTree = "<group>"; };
+		6DDB0E732AA9D4C900B7A103 /* RenovationProjectRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +58,12 @@
 			isa = PBXGroup;
 			children = (
 				6DDB0E612AA8797F00B7A103 /* RenoTrackerApp.swift */,
-				6DDB0E632AA8797F00B7A103 /* ContentView.swift */,
+				6DDB0E632AA8797F00B7A103 /* DetailView.swift */,
 				6DDB0E652AA8798000B7A103 /* Assets.xcassets */,
 				6DDB0E672AA8798000B7A103 /* Preview Content */,
+				6DDB0E6F2AA9D05B00B7A103 /* EditView.swift */,
+				6DDB0E712AA9D22C00B7A103 /* RenovationProjectsView.swift */,
+				6DDB0E732AA9D4C900B7A103 /* RenovationProjectRow.swift */,
 			);
 			path = RenoTracker;
 			sourceTree = "<group>";
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DDB0E642AA8797F00B7A103 /* ContentView.swift in Sources */,
+				6DDB0E642AA8797F00B7A103 /* DetailView.swift in Sources */,
+				6DDB0E742AA9D4C900B7A103 /* RenovationProjectRow.swift in Sources */,
+				6DDB0E722AA9D22C00B7A103 /* RenovationProjectsView.swift in Sources */,
 				6DDB0E622AA8797F00B7A103 /* RenoTrackerApp.swift in Sources */,
+				6DDB0E702AA9D05B00B7A103 /* EditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
