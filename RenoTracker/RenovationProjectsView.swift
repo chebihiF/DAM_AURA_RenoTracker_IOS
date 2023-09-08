@@ -15,8 +15,8 @@ struct RenovationProjectsView: View {
         NavigationView{
             List{
                 NavigationLink(
-                    destination: DetailView(),
-                    label: { RenovationProjectRow(renovationProject: renovationProjects[1]) })
+                    destination: DetailView(renovationProject: renovationProjects[0]),
+                    label: { RenovationProjectRow(renovationProject: renovationProjects[0]) })
             }
             .navigationTitle("Home")
         }

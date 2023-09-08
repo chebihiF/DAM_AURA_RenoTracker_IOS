@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DetailView: View {
+    
+    var renovationProject: RenovationProject
+    
     var body: some View {
         VStack(alignment: .leading) {
             
@@ -35,8 +38,8 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
-        DetailView()
+        DetailView(renovationProject: RenovationProject.testData[0])
+        DetailView(renovationProject: RenovationProject.testData[0])
             .preferredColorScheme(.dark)
     }
 }
