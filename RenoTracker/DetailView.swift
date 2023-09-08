@@ -87,6 +87,7 @@ struct ProgressInfoCard: View {
             VStack{
                 HStack{
                     ProgressView(value: 0.6)
+                    // calcule
                     Text("60% Complete")
                 }
                 Text("Due on Sunday, August 1, 2023")
