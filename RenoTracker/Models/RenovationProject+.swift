@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 // add ID as projectNumber to RenovationProject
 extension RenovationProject: Identifiable{
@@ -39,6 +40,40 @@ extension RenovationProject {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
         return formatter.string(from: NSNumber(value: precentComplete)) ?? "0%" // 50%
+    }
+    
+    var budgetAmountRemaining: Double {
+        budgetAmountAllocated - budgetSpentToDate
+    }
+    
+    var budgetStatus: BudgetStatus {
+        budgetAmountRemaining >= 0 ? .onBudget : .overBudget // condition ? result if true : result if false
+    }
+    
+    var formattedBudgetAmountAllocated: String {
+        self.currencyFormatter.string(from: NSNumber(value: budgetAmountAllocated)) ?? "unknown"
+    }
+    
+    var formattedBudgetSpentToDate: String {
+        self.currencyFormatter.string(from: NSNumber(value: budgetSpentToDate)) ?? "unknown"
+    }
+    
+    var formattedBudgetAmountRemaining: String {
+        self.currencyFormatter.string(from: NSNumber(value: budgetAmountRemaining)) ?? "unknown"
+    }
+    
+    var budgetStatusSymbol: Image {
+        budgetStatus == .onBudget ? Image(systemName: "checkmark.circle.fill") : Image(systemName: "x.circle.fill")
+    }
+    
+    var budgetStatusForegroundColor: Color {
+        budgetStatus == .onBudget ? .green : .red
+    }
+    
+    private var currencyFormatter: NumberFormatter {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.numberStyle = .currency
+        return currencyFormatter
     }
     
 }

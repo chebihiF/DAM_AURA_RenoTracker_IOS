@@ -39,6 +39,11 @@ struct InspectionLogEntry {
     var details: String
 }
 
+enum BudgetStatus: String {
+    case onBudget = "On Budget"
+    case overBudget = "Over Budget"
+}
+
 // la suite du RenovationProject (structur)
 extension RenovationProject {
     static var testData: [RenovationProject]
