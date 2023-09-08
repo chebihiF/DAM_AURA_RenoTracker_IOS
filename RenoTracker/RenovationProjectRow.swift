@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RenovationProjectRow: View {
+    var renovationProject: RenovationProject
+    
     var body: some View {
         VStack{
             HStack(alignment: .top){
-                Image("front-lobby")
+                Image(renovationProject.imageName)
                     .resizable()
                     .frame(width: 100, height: 100)
                     .aspectRatio(contentMode: .fill)
@@ -36,6 +38,6 @@ struct RenovationProjectRow: View {
 
 struct RenovationProjectRow_Previews: PreviewProvider {
     static var previews: some View {
-        RenovationProjectRow()
+        RenovationProjectRow(renovationProject: RenovationProject.testData[0])
     }
 }

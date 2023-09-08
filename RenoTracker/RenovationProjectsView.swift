@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct RenovationProjectsView: View {
+    
+    var renovationProjects: [RenovationProject]
+    
     var body: some View {
         NavigationView{
             List{
                 NavigationLink(
                     destination: DetailView(),
-                    label: { RenovationProjectRow() })
-                RenovationProjectRow()
-                RenovationProjectRow()
-                RenovationProjectRow()
+                    label: { RenovationProjectRow(renovationProject: renovationProjects[1]) })
             }
             .navigationTitle("Home")
         }
@@ -25,6 +25,6 @@ struct RenovationProjectsView: View {
 
 struct RenovationProjectsView_Previews: PreviewProvider {
     static var previews: some View {
-        RenovationProjectsView()
+        RenovationProjectsView(renovationProjects: RenovationProject.testData)
     }
 }
