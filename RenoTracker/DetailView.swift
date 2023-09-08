@@ -14,22 +14,22 @@ struct DetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Header()
+            Header(renovationProject: renovationProject)
             
-            WorkQuality()
-            
-            Divider()
-            
-            PunchList()
+            WorkQuality(renovationProject: renovationProject)
             
             Divider()
             
-            Budget()
+            PunchList(renovationProject: renovationProject)
+            
+            Divider()
+            
+            Budget(renovationProject: renovationProject)
             
             Spacer()
         }
         .padding(.all)
-        .navigationTitle("Front Lobby")
+        .navigationTitle(renovationProject.renovationArea)
         .sheet(isPresented: .constant(false), content: {
             EditView()
         })
@@ -46,17 +46,16 @@ struct DetailView_Previews: PreviewProvider {
 
 // MARK: Header Section
 struct Header: View {
+    var renovationProject: RenovationProject
     var body: some View {
         VStack(alignment: .leading){
-            /*Text("Front Lobby")
-                .font(.largeTitle)*/
-            Image("front-lobby")
+            Image(renovationProject.imageName)
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 15))
                 .shadow(radius: 5)
                 .overlay(
-                    Text("FLAGGED FOR REVIEW")
+                    Text(renovationProject.isFlagged ? "FLAGGED FOR REVIEW" : "")
                         .padding(5)
                         .foregroundColor(.white)
                         .background(Color.black.opacity(0.8))
@@ -68,7 +67,7 @@ struct Header: View {
                         .stroke(Color.white, lineWidth: 5)
                 )
                 .overlay(
-                    ProgressInfoCard()
+                    ProgressInfoCard(renovationProject: renovationProject)
                         .padding(),
                     alignment: .bottom
                 )
@@ -78,6 +77,7 @@ struct Header: View {
 }
 
 struct ProgressInfoCard: View {
+    var renovationProject: RenovationProject
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 5)
@@ -86,11 +86,11 @@ struct ProgressInfoCard: View {
             
             VStack{
                 HStack{
-                    ProgressView(value: 0.6)
+                    ProgressView(value: renovationProject.precentComplete)
                     // calcule
-                    Text("60% Complete")
+                    Text("\(renovationProject.formattedPercentComplete) Complete")
                 }
-                Text("Due on Sunday, August 1, 2023")
+                Text("Due on \(renovationProject.formattedDueDate)")
             }.padding()
             
         }.frame(width: 310, height: 100)
@@ -99,69 +99,116 @@ struct ProgressInfoCard: View {
 
 // MARK: Status section
 struct WorkQuality: View {
+    var renovationProject: RenovationProject
     var body: some View {
         VStack{
             Text("Work Quality : Good")
-            HStack{
+                .font(.headline)
+                .foregroundColor(.accentColor)
+                .padding(.bottom, 2)
+            
+            WorkQualitySymbol
+                .foregroundColor(renovationProject.workQuality == .na ? .gray : .yellow)
+                .font(.title3)
+                .accessibility(hidden: true)
+        }
+    }
+    
+    var WorkQualitySymbol: some View {
+        HStack{
+            
+            //First Start
+            if [.poor, .fair, .good, .excellent].contains(renovationProject.workQuality){
                 Image(systemName: "star.fill")
-                Image(systemName: "star.fill")
-                Image(systemName: "star.fill")
-                Image(systemName: "star.fill")
+            } else {
                 Image(systemName: "star")
-            }.foregroundColor(.yellow)
+            }
+            
+            //Second Start
+            if [.fair, .good, .excellent].contains(renovationProject.workQuality){
+                Image(systemName: "star.fill")
+            } else {
+                Image(systemName: "star")
+            }
+            
+            //Third Start
+            if [.good, .excellent].contains(renovationProject.workQuality){
+                Image(systemName: "star.fill")
+            } else {
+                Image(systemName: "star")
+            }
+            
+            //Fourth Start
+            if [.excellent].contains(renovationProject.workQuality){
+                Image(systemName: "star.fill")
+            } else {
+                Image(systemName: "star")
+            }
         }
     }
 }
+
+
 
 // MARK: Punch List section
 struct PunchList: View {
+    var renovationProject: RenovationProject
+    
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             Text("Punch List")
                 .font(.headline)
                 .foregroundColor(.accentColor)
-            Label("Remodel front desk", systemImage: "checkmark.circle")
-            Label("Retile entry", systemImage: "checkmark.circle")
-            Label("Replace Light fixtures", systemImage: "checkmark.circle")
-            Label("Paint walls", systemImage: "asterisk.circle")
-            Label("Hang new artWork", systemImage: "circle")
+                .padding(.bottom, 2)
+            
+            ForEach(renovationProject.punchList, id: \.task) { punchListItem in
+                Label(
+                    title: { Text(punchListItem.task) },
+                    icon: { punchListItem.completionStatusSymbol })
+            }
         }
     }
 }
+
 
 // MARK: Budget section
 struct Budget: View {
+    var renovationProject: RenovationProject
+    
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             Text("Budget")
                 .font(.headline)
                 .foregroundColor(.accentColor)
+                .padding(.bottom, 2)
             
             Label(
-                title: { Text("On Budget")},
-                icon: { Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.green)})
+                title: { Text(renovationProject.budgetStatus.rawValue) },
+                icon: { renovationProject.budgetStatusSymbol
+                    .foregroundColor(renovationProject.budgetStatusForegroundColor) }
+            )
             
-            HStack{
-                Text("Amount Allocated: ")
+            HStack {
+                Text("Amount Allocated:")
                 Spacer()
-                Text("$15,000")
+                Text(renovationProject.formattedBudgetAmountAllocated)
             }
-            HStack{
-                Text("Spent to-date: ")
+            
+            HStack {
+                Text("Spent to-date:")
                 Spacer()
-                Text("$8,350")
+                Text(renovationProject.formattedBudgetSpentToDate)
                     .underline()
             }
-            HStack{
-                Text("Amount remaining: ")
+            
+            HStack {
+                Text("Amount remaining:")
                     .bold()
                 Spacer()
-                Text("$6,660")
+                Text(renovationProject.formattedBudgetAmountRemaining)
                     .bold()
             }
         }
     }
 }
-
 

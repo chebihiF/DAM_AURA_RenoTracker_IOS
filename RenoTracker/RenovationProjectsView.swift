@@ -14,9 +14,13 @@ struct RenovationProjectsView: View {
     var body: some View {
         NavigationView{
             List{
-                NavigationLink(
-                    destination: DetailView(renovationProject: renovationProjects[0]),
-                    label: { RenovationProjectRow(renovationProject: renovationProjects[0]) })
+                ForEach(renovationProjects){ renovationProject in
+                    NavigationLink(
+                        destination: DetailView(renovationProject: renovationProject),
+                        label: { RenovationProjectRow(renovationProject: renovationProject) })
+                    
+                }
+                
             }
             .navigationTitle("Home")
         }
