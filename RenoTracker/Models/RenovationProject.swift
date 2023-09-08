@@ -1,6 +1,6 @@
 import Foundation
 
-struct RenovationProject {
+struct RenovationProject: Decodable {
     var projectNumber: Int = 0
     var renovationArea: String = ""
     var imageName: String = ""
@@ -13,28 +13,56 @@ struct RenovationProject {
     var budgetSpentToDate: Double = 0.0
     var inspectionLog: [InspectionLogEntry] = []
     
-    enum WorkQualityRating: String {
+    enum WorkQualityRating: String, Decodable {
         case na = "N/A"
         case poor = "Poor"
         case fair = "Fair"
         case good = "Good"
         case excellent = "Excellent"
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let status = try? container.decode(String.self)
+            
+            switch status {
+            case "N/A": self = .na
+            case "Poor": self = .poor
+            case "Fair": self = .fair
+            case "Good": self = .good
+            case "Excellent": self = .excellent
+            default: self = .na
+            }
+        }
+        
     }
     
 }
 
-struct PunchListItem {
+struct PunchListItem: Decodable {
     var task: String = ""
     var status: CompletionStatus = .notStarted
     
-    enum CompletionStatus: String {
+    enum CompletionStatus: String, Decodable {
         case notStarted = "Not Started"
         case inProgress = "In Progress"
         case complete = "Complete"
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            let status = try? container.decode(String.self)
+            
+            switch status {
+            case "Not Started": self = .notStarted
+            case "In Progress": self = .inProgress
+            case "Complete": self = .complete
+            default: self = .notStarted
+            }
+            
+        }
     }
 }
 
-struct InspectionLogEntry {
+struct InspectionLogEntry: Decodable {
     var entryDate: Date
     var details: String
 }

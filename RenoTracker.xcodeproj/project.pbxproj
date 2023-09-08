@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D13A0992AAB0D2700EC9C64 /* RenovationProject+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13A0982AAB0D2700EC9C64 /* RenovationProject+.swift */; };
+		6D13A0992AAB0D2700EC9C64 /* RenovationProject + SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13A0982AAB0D2700EC9C64 /* RenovationProject + SwiftUI.swift */; };
+		6D13A09B2AAB21D600EC9C64 /* PunchListItem + SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13A09A2AAB21D600EC9C64 /* PunchListItem + SwiftUI.swift */; };
+		6D13A09D2AAB234E00EC9C64 /* RenovationProjectDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D13A09C2AAB234E00EC9C64 /* RenovationProjectDataManager.swift */; };
 		6DDB0E622AA8797F00B7A103 /* RenoTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E612AA8797F00B7A103 /* RenoTrackerApp.swift */; };
 		6DDB0E642AA8797F00B7A103 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DDB0E632AA8797F00B7A103 /* DetailView.swift */; };
 		6DDB0E662AA8798000B7A103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DDB0E652AA8798000B7A103 /* Assets.xcassets */; };
@@ -19,7 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6D13A0982AAB0D2700EC9C64 /* RenovationProject+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RenovationProject+.swift"; sourceTree = "<group>"; };
+		6D13A0982AAB0D2700EC9C64 /* RenovationProject + SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RenovationProject + SwiftUI.swift"; sourceTree = "<group>"; };
+		6D13A09A2AAB21D600EC9C64 /* PunchListItem + SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PunchListItem + SwiftUI.swift"; sourceTree = "<group>"; };
+		6D13A09C2AAB234E00EC9C64 /* RenovationProjectDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationProjectDataManager.swift; sourceTree = "<group>"; };
 		6DDB0E5E2AA8797F00B7A103 /* RenoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RenoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DDB0E612AA8797F00B7A103 /* RenoTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenoTrackerApp.swift; sourceTree = "<group>"; };
 		6DDB0E632AA8797F00B7A103 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -87,7 +91,9 @@
 			children = (
 				6DDB0E762AA9DAA000B7A103 /* projects.geojson */,
 				6DDB0E772AA9DBF200B7A103 /* RenovationProject.swift */,
-				6D13A0982AAB0D2700EC9C64 /* RenovationProject+.swift */,
+				6D13A0982AAB0D2700EC9C64 /* RenovationProject + SwiftUI.swift */,
+				6D13A09A2AAB21D600EC9C64 /* PunchListItem + SwiftUI.swift */,
+				6D13A09C2AAB234E00EC9C64 /* RenovationProjectDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,11 +170,13 @@
 			files = (
 				6DDB0E642AA8797F00B7A103 /* DetailView.swift in Sources */,
 				6DDB0E742AA9D4C900B7A103 /* RenovationProjectRow.swift in Sources */,
+				6D13A09D2AAB234E00EC9C64 /* RenovationProjectDataManager.swift in Sources */,
 				6DDB0E782AA9DBF200B7A103 /* RenovationProject.swift in Sources */,
 				6DDB0E722AA9D22C00B7A103 /* RenovationProjectsView.swift in Sources */,
 				6DDB0E622AA8797F00B7A103 /* RenoTrackerApp.swift in Sources */,
 				6DDB0E702AA9D05B00B7A103 /* EditView.swift in Sources */,
-				6D13A0992AAB0D2700EC9C64 /* RenovationProject+.swift in Sources */,
+				6D13A0992AAB0D2700EC9C64 /* RenovationProject + SwiftUI.swift in Sources */,
+				6D13A09B2AAB21D600EC9C64 /* PunchListItem + SwiftUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
