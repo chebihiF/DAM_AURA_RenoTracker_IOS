@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     
-    var renovationProject: RenovationProject
+    @Binding var renovationProject: RenovationProject
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -36,13 +36,6 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(renovationProject: RenovationProject.testData[0])
-        DetailView(renovationProject: RenovationProject.testData[0])
-            .preferredColorScheme(.dark)
-    }
-}
 
 // MARK: Header Section
 struct Header: View {
@@ -212,3 +205,20 @@ struct Budget: View {
     }
 }
 
+
+
+struct DetailView_Previews: PreviewProvider {
+    
+    struct StateFullPreviewWrapper: View {
+        @State private var testProject = RenovationProject.testData[0]
+        var body: some View {
+            DetailView(renovationProject: $testProject)
+        }
+    }
+    
+    static var previews: some View {
+        NavigationView{
+            StateFullPreviewWrapper()
+        }
+    }
+}

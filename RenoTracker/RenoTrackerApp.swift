@@ -15,7 +15,7 @@ struct RenoTrackerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RenovationProjectsView(renovationProjects: renovationProjects)
+            RenovationProjectsView(renovationProjects: $renovationProjects)
                 .onAppear(perform: {
                     renovationProjectDataManager.load{ renovationProjects in
                         self.renovationProjects = renovationProjects
