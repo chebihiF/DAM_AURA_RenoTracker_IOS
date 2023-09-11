@@ -230,7 +230,7 @@ struct Budget: View {
 struct DetailView_Previews: PreviewProvider {
     
     struct StateFullPreviewWrapper: View {
-        @State private var testProject = RenovationProject.testData[0]
+        @State private var testProject = RenovationProject.testData[1]
         var body: some View {
             DetailView(renovationProject: $testProject)
         }

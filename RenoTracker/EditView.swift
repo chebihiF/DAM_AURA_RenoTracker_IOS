@@ -12,43 +12,52 @@ struct EditView: View {
     @Binding var renovationProject: RenovationProject
     
     var body: some View {
-        VStack{
-            TextField("Ronavation area", text: $renovationProject.renovationArea)
-                .disableAutocorrection(true)
-            DatePicker(selection: $renovationProject.dueDate, displayedComponents: .date){
-                Text("Due Date")
-            }.datePickerStyle(CompactDatePickerStyle())
-            
-            HStack{
-                Text("Work Qualit Rating")
-                Spacer()
-                Picker(selection: $renovationProject.workQuality, label:
-                    Text(renovationProject.workQuality.rawValue)){
-                    ForEach(RenovationProject.WorkQualityRating.allCases.reversed(), id: \.self){
-                        workQualityRating in
-                        Text(workQualityRating.rawValue).tag(workQualityRating)
-                    }
-                }.pickerStyle(MenuPickerStyle())
-            }
-            Divider()
-            Text("Punch List").font(.headline)
-            ForEach(renovationProject.punchList, id: \.task){ punchListItem in
+        Form{
+            Section(header: Text("Project Info")){
+                TextField("Ronavation area", text: $renovationProject.renovationArea)
+                    .disableAutocorrection(true)
+                DatePicker(selection: $renovationProject.dueDate, displayedComponents: .date){
+                    Text("Due Date")
+                }.datePickerStyle(CompactDatePickerStyle())
                 
-                // get the puchListItem reference
-                let punchListItemIndex = renovationProject.punchList.firstIndex(where: {
-                    $0.task == punchListItem.task })!
-                let puchListItemBinding = $renovationProject.punchList[punchListItemIndex]
-                
-                VStack(alignment: .leading){
-                    Text(punchListItem.task)
-                    Picker("Punch List", selection: puchListItemBinding.status){
-                        Text("Not Started").tag(PunchListItem.CompletionStatus.notStarted)
-                        Text("In Progress").tag(PunchListItem.CompletionStatus.inProgress)
-                        Text("Complete").tag(PunchListItem.CompletionStatus.complete)
-                    }.pickerStyle(SegmentedPickerStyle())
+                HStack{
+                    
+                    Picker(selection: $renovationProject.workQuality, label:
+                        Text("Work Quality Rating")){
+                        ForEach(RenovationProject.WorkQualityRating.allCases.reversed(), id: \.self){
+                            workQualityRating in
+                            Text(workQualityRating.rawValue).tag(workQualityRating)
+                        }
+                    }.pickerStyle(DefaultPickerStyle())
                 }
-                
+                Toggle(isOn: $renovationProject.isFlagged, label: {
+                    Text("Flagged for review")
+                })
             }
+            Section(header: Text("Punch List")){
+                ForEach(renovationProject.punchList, id: \.task){ punchListItem in
+                    
+                    // get the puchListItem reference
+                    let punchListItemIndex = renovationProject.punchList.firstIndex(where: {
+                        $0.task == punchListItem.task })!
+                    let puchListItemBinding = $renovationProject.punchList[punchListItemIndex]
+                    
+                    VStack(alignment: .leading){
+                        Text(punchListItem.task)
+                        Picker("Punch List", selection: puchListItemBinding.status){
+                            Text("Not Started").tag(PunchListItem.CompletionStatus.notStarted)
+                            Text("In Progress").tag(PunchListItem.CompletionStatus.inProgress)
+                            Text("Complete").tag(PunchListItem.CompletionStatus.complete)
+                        }.pickerStyle(SegmentedPickerStyle())
+                    }
+                    
+                }
+            }
+            
+            Section(header: Text("Budget")){
+                TextField("Spent To-Date", value: $renovationProject.budgetSpentToDate, formatter: NumberFormatter())
+            }
+            
             
         }
     }
