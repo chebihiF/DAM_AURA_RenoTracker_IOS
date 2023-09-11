@@ -13,7 +13,7 @@ struct RenovationProject: Decodable {
     var budgetSpentToDate: Double = 0.0
     var inspectionLog: [InspectionLogEntry] = []
     
-    enum WorkQualityRating: String, Decodable {
+    enum WorkQualityRating: String, Decodable, CaseIterable {
         case na = "N/A"
         case poor = "Poor"
         case fair = "Fair"

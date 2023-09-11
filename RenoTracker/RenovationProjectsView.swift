@@ -9,17 +9,17 @@ import SwiftUI
 
 struct RenovationProjectsView: View {
     
-    @Binding var renovationProjects: [RenovationProject]
+    @Binding var renovationProjects: [RenovationProject] //recive $renovationProjects from @main
     
     var body: some View {
         NavigationView{
             List{
-                ForEach(renovationProjects){ renovationProject in
+                ForEach(renovationProjects){ renovationProject in  // renovationProject = copy of renovationProjects element
                     
                     let projectIndex = renovationProjects.firstIndex(where: {
                         $0.id == renovationProject.id })!
                     
-                    let renovationProjectsBinding = $renovationProjects[projectIndex]
+                    let renovationProjectsBinding = $renovationProjects[projectIndex] // $T[0]
                     
                     
                     NavigationLink(

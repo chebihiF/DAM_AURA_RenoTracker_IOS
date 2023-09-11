@@ -10,6 +10,8 @@ import SwiftUI
 struct DetailView: View {
     
     @Binding var renovationProject: RenovationProject
+    @State private var showEditView = false
+    @State private var renovationProjectForEditing = RenovationProject() // RenovationProject object for editing
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -30,8 +32,26 @@ struct DetailView: View {
         }
         .padding(.all)
         .navigationTitle(renovationProject.renovationArea)
-        .sheet(isPresented: .constant(false), content: {
-            EditView()
+        .navigationBarItems(trailing: Button(action: {
+            renovationProjectForEditing = renovationProject
+            showEditView = true
+        }, label: {
+            Text("Edit")
+        }))
+        .sheet(isPresented: $showEditView, content: {
+            NavigationView{
+                EditView(renovationProject: $renovationProjectForEditing)
+                    .navigationBarItems(leading: Button(action: {
+                        showEditView = false
+                    }, label: {Text("Cancel")}),
+                                        
+                    trailing: Button(action: {
+                        showEditView = false
+                        self.renovationProject = renovationProjectForEditing
+                    }, label: {
+                        Text("Done")
+                    }))
+            }
         })
     }
 }
